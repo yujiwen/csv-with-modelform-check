@@ -1,0 +1,11 @@
+{
+    "python.analysis.extraPaths": [
+        "..\\venv3.9.1\\Lib\\site-packages",
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "120",
+        "--experimental"
+    ],
+    "python.pythonPath": "..\\venv3.9.1\\Scripts\\python.exe",
+}
