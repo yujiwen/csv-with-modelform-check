@@ -6,9 +6,8 @@ from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy
 import csv
 import urllib.parse
-from commons_utils.csv.forms import ImportForm
+from .forms import ImportForm
 from pandas import pandas as pd
-from master.forms import *
 from django.shortcuts import redirect
 from django.forms import modelform_factory
 from django.core.files.storage import FileSystemStorage
@@ -117,8 +116,8 @@ class CsvImportModelMixin():
 
     is_first_comer_priority = True  # True: Inside a same chunk, first comer is saved to database. False: last was saved
 
-    change_list_template = 'commons_utils/change_list_with_import.html'
-    import_template = 'commons_utils/import.html'
+    change_list_template = 'admin/change_list_with_import.html'
+    import_template = 'admin/import.html'
 
     IMPORT_PERMISSION_CODE = 'import'
 
@@ -331,12 +330,12 @@ class CsvImportModelMixin():
                     context['title'] = _('%(name)s import errors')% {'name': opts.verbose_name}
                     context['forms'] = errors
                     logging.info(f'There are {len(errors)} error records at {file_path} when importing it to {opts.model_name}.')
-                    return TemplateResponse(request, 'commons_utils/import_error.html', context)
+                    return TemplateResponse(request, 'admin/import_error.html', context)
                 else:
                     # return super(CsvImportModelMixin, self).changelist_view(request=request)
                     return redirect(reverse_lazy('%s:%s_%s_changelist' % 
                         (request.resolver_match.namespace, opts.app_label, opts.model_name)))
 
         context['form'] = form
-        return TemplateResponse(request, 'commons_utils/import.html', context)
+        return TemplateResponse(request, 'admin/import.html', context)
 

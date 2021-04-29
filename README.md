@@ -1,2 +1,27 @@
 # csv-with-modelform-check
-Django admin site csv export and import plugin. CSV import is validated using modelform.
+Checked-csv is a Django plusin for importing and exporting model with included admin integration.
+
+## Features
+
+- admin integration for export and import
+- multi-encoding support
+- import error check by model form
+- import error reporting
+
+## Screenshots
+
+
+## Installation and configuration
+- installation
+  <pre>
+  >pip install checked-csv
+  </pre>
+- configuration(settings.py)
+  <pre>
+  INSTALLED_APPS = (
+    ...
+    'checked-csv',
+  )
+  </pre>
+
+## Example app
