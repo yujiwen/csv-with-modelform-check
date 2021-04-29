@@ -9,8 +9,8 @@ Checked-csv is a Django plusin for importing and exporting model with included a
 - import error reporting
 
 ## Screenshots
-![Screen Shot](images/checked_csv_001.png)
-
+![Export Action&Import button](images/checked_csv_001.png)
+![Error List](images/checked_csv_errorlist.png)
 ## Installation and configuration
 - installation
   <pre>
@@ -25,4 +25,9 @@ Checked-csv is a Django plusin for importing and exporting model with included a
   </pre>
 
 ## Example app
-cd testsite
+<pre>
+>cd tests
+>python manage.py migrate
+>python manage.py createsuperuser
+>python manage.py rnserver
+</pre>
