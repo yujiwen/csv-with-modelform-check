@@ -1,1 +1,2 @@
 recursive-include src/checked_csv/templates *
+recursive-include src/checked_csv/locale *
