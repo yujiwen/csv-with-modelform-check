@@ -328,6 +328,7 @@ class CsvImportModelMixin():
 
                 if errors:
                     context['title'] = _('%(name)s import errors')% {'name': opts.verbose_name}
+                    context['show_close'] = True
                     context['forms'] = errors
                     logging.info(f'There are {len(errors)} error records at {file_path} when importing it to {opts.model_name}.')
                     return TemplateResponse(request, 'admin/import_error.html', context)
