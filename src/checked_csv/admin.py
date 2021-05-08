@@ -244,10 +244,10 @@ class CsvImportModelMixin():
                     errors.append(modelform)
 
             # Create an instance of the ModelForm class using one record of the csv data
-            modelform = modelform_class(record | self.get_csv_excluded_fields_init_values(request))
+            modelform = modelform_class(self.get_csv_excluded_fields_init_values(request) | record)
             if modelform.is_valid():
                 # newly imported data
-                row = self.model(**modelform.cleaned_data)
+                row = self.model(**(self.get_csv_excluded_fields_init_values(request) | modelform.cleaned_data))
                 new_rows.append(exclude_duplication(new_rows, row, modelform))
             else:
                 if has_nonunique_violation(modelform):
@@ -303,14 +303,14 @@ class CsvImportModelMixin():
                                    'na_filter' : False,
                                    'dtype' : 'str'
                                   }
+                errors = []
                 try:
-                    errors = []
-                    with transaction.atomic():
-                        for chunk in pd.read_csv(file_path, **read_csv_params):
-                            # df = chunk.replace(np.nan, '', regex=True)
-                            # df = chunk.applymap(str)
-                            new_rows = []
-                            update_rows = []
+                    for chunk in pd.read_csv(file_path, **read_csv_params):
+                        # df = chunk.replace(np.nan, '', regex=True)
+                        # df = chunk.applymap(str)
+                        new_rows = []
+                        update_rows = []
+                        with transaction.atomic():
                             for record in chunk.to_dict('record'):
                                 read_record(request, new_rows, update_rows, errors, record)
 
@@ -328,6 +328,7 @@ class CsvImportModelMixin():
 
                 if errors:
                     context['title'] = _('%(name)s import errors')% {'name': opts.verbose_name}
+                    context['show_close'] = True
                     context['forms'] = errors
                     logging.info(f'There are {len(errors)} error records at {file_path} when importing it to {opts.model_name}.')
                     return TemplateResponse(request, 'admin/import_error.html', context)
