@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 13:59+0900\n"
+"POT-Creation-Date: 2021-05-09 15:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,46 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\admin.py:91
+#: .\src\checked_csv\admin.py:91
 msgid "CSV Export"
 msgstr "CSVエクスポート"
 
-#: .\admin.py:274 .\templates\admin\change_list_with_import.html:16
-#: .\templates\admin\import.html:9 .\templates\admin\import_error.html:9
+#: .\src\checked_csv\admin.py:274
+#: .\src\checked_csv\templates\admin\change_list_with_import.html:16
+#: .\src\checked_csv\templates\admin\import.html:9
+#: .\src\checked_csv\templates\admin\import_error.html:13
 #, python-format
 msgid "Import %(name)s"
 msgstr "%(name)sをインポート"
 
-#: .\admin.py:330
+#: .\src\checked_csv\admin.py:330
 #, python-format
 msgid "%(name)s import errors"
 msgstr "%(name)sのインポートエラー"
 
-#: .\forms.py:8
+#: .\src\checked_csv\forms.py:8
 msgid "File to upload"
 msgstr "アップロードファイル"
 
-#: .\templates\admin\change_list_with_import.html:9
+#: .\src\checked_csv\templates\admin\change_list_with_import.html:9
 #, python-format
 msgid "Add %(name)s"
 msgstr "%(name)sを追加"
 
-#: .\templates\admin\import.html:6 .\templates\admin\import_error.html:6
+#: .\src\checked_csv\templates\admin\import.html:6
+#: .\src\checked_csv\templates\admin\import_error.html:10
 msgid "Home"
 msgstr ""
 
-#: .\templates\admin\import.html:20
+#: .\src\checked_csv\templates\admin\import.html:20
 msgid "Please correct the error below."
 msgstr ""
 
-#: .\templates\admin\import.html:20
-msgid "Please correct the errors below."
-msgstr ""
-
-#: .\templates\admin\import.html:29
+#: .\src\checked_csv\templates\admin\import.html:29
 msgid "Upload"
 msgstr "アップロード"
 
-#: .\templates\admin\import_error.html:25
+#: .\src\checked_csv\templates\admin\import_error.html:29
 msgid "Error Message"
 msgstr "エラーメッセージ"
