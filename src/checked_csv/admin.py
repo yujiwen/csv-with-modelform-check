@@ -1,6 +1,6 @@
 from django.db.models.fields import Field
 from django.http import HttpResponse
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.template.response import TemplateResponse
 from django.core.exceptions import PermissionDenied
 from django.urls import reverse_lazy
